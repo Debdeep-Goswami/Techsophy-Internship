@@ -1,0 +1,41 @@
+/* Table Styles */
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.col-item-name{
+    width: 60%;
+}
+.col-quantity,
+.col-price{
+    width: 20%;
+}
+
+table.grocery-list td:nth-child(2),
+table.grocery-list td:nth-child(3){
+    text-align: center;
+}
+
+table th,
+table td{
+    border: 1px solid #869960;
+    padding: 10px;
+
+}
+
+table tbody tr:nth-child(odd){
+    background-color: #e5e5E9dc;
+}
+
+table th{
+    text-align: left;
+    background-color: #869960;
+    color:black;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.4);
+
+}
+
+/* End of Table Styles */

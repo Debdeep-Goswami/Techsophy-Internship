@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title> Form</title>
+    </head>
+
+    <body>
+
+
+        <form method="POST">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+
+            <label for="telephone">Telephone</label>
+            <input type="tel" id="telephone" name="telephone">
+
+            <label for="yourMessage">Your Message</label>
+            <textarea id="yourMessage"></textarea>"
+            
+            <br>
+
+            <label for="favouriteColor">What is your favourite color</label>
+            <select id="favouriteColor" name="favouriteColor">
+                <option value="colorRed">Red</option>
+                <option value="colorGreen">Green</option>
+                <option value="colorBlue">Blue</option>
+            </select>
+
+            <br>
+
+            <fieldset>
+                <legend>What is your favourite meal</legend>
+                <input type="radio" id="breakfast" name="favouriteMeal" value="meal1"><label for="breakfast">Breakfast</label>
+                <input type="radio" id="lunch" name="favouriteMeal" value="meal2"><label for="lunch">Lunch</label>
+                <input type="radio" id="dinner" name="favouriteMeal" value="meal3"><label for="dinner">Dinner</label>
+
+            </fieldset>  
+            
+            <fieldset>
+                <legend>Select your pets (Check all that apply)</legend>
+                <input type="checkbox" id="dog" name="pets" value="dog"><label for="dog">Dog</label>
+                <input type="checkbox" id="cat" name="pets" value="cat"><label for="cat">Cat</label>
+                <input type="checkbox" id="fish" name="pets" value="fish"><label for="fish">Fish</label>
+
+            </fieldset>
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Aisle</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td>N/A</td>
+                        <td>$5.50</td>
+                        <td>N/A</td>
+                    </tr>
+                </tfoot>
+
+                <tbody> 
+                    <tr>
+                        <td>Bread</td>
+                        <td>2</td>
+                        <td>$3.00</td>
+                        <td>1</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Milk</td>
+                        <td>1</td>
+                        <td>$2.50</td>
+                        <td>2</td>
+                    </tr>
+                    
+                </tbody>
+                
+
+                
+
+            </table>
+
+            <input type="submit" value="Submit">
+
+
+
+        </form>
+       
+        
+    </body>
+</html>
+
+
+
