@@ -65,21 +65,37 @@ public class StudentController {
 		return studentResponseList;
 	
 	}
+	
+	
+	@GetMapping("/getByFirstNameAndLastName/{firstName}/{lastName}")
+	public List<StudentResponse> getByFirstNameAndLastName(@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
+		List<Student> studentList=studentService.getByFirstNameAndLastName(firstName, lastName);
+		List<StudentResponse> studentResponseList=new ArrayList<StudentResponse>();
+		studentList.stream().forEach(student->{
+			studentResponseList.add(new StudentResponse(student));
+		});
+		return studentResponseList;
+	}
+	
+	@GetMapping("/getByFirstNameOrLastName/{firstName}/{lastName}")
+	public List<StudentResponse> getByFirstNameOrLastName(@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
+		List<Student> studentList=studentService.getByFirstNameOrLastName(firstName, lastName);
+		List<StudentResponse> studentResponseList=new ArrayList<StudentResponse>();
+		studentList.stream().forEach(student->{
+			studentResponseList.add(new StudentResponse(student));
+		});
+		return studentResponseList;
+	}
+	
 	//________________________________________  End of Get Methods ______________________________________
 	
 	
 	//###################################### Post Method  ######################################################
 	
 	@PostMapping("/create")
-	public StudentResponse createStudent(@Valid @RequestBody CreateStudentRequest createStudentRequest) throws Exception {
-		
-		try {
+	public StudentResponse createStudent(@Valid @RequestBody CreateStudentRequest createStudentRequest) {
 			Student student=studentService.createStudent(createStudentRequest);
 			return new StudentResponse(student);
-		}
-		catch(Exception e) {
-			throw new Exception("Testing Error");
-		}	
 	}
 	
 	//_____________________________________  End of Post Methods ____________________________________________

@@ -28,6 +28,19 @@ public class StudentService {
 		return studentRepository.findByLastName(lastName);
 	}
 	
+	
+	//	AND
+	public List<Student> getByFirstNameAndLastName(String firstName, String lastName){
+		return studentRepository.findByFirstNameAndLastName(firstName, lastName);
+	}
+	
+	//	OR
+	public List<Student> getByFirstNameOrLastName(String firstName, String lastName){
+		return studentRepository.findByFirstNameOrLastName(firstName, lastName);
+	}
+	
+	//	In	
+		
 	public Student createStudent(CreateStudentRequest createStudentRequest) {
 	
 		Student student = new Student(createStudentRequest);
