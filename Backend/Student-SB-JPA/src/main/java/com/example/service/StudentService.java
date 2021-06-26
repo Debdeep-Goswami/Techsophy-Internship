@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.entity.Student;
 import com.example.repository.StudentRepository;
 import com.example.request.CreateStudentRequest;
+import com.example.request.UpdateStudentRequest;
 
 @Service
 public class StudentService {
@@ -19,6 +20,14 @@ public class StudentService {
 		return studentRepository.findAll();
 	}
 	
+	public List<Student> getByFirstName(String firstName) {
+		return studentRepository.findByFirstName(firstName);
+	}
+	
+	public List<Student> getByLastName(String lastName) {
+		return studentRepository.findByLastName(lastName);
+	}
+	
 	public Student createStudent(CreateStudentRequest createStudentRequest) {
 	
 		Student student = new Student(createStudentRequest);
@@ -26,6 +35,24 @@ public class StudentService {
 		student = studentRepository.save(student);
 		
 		return student;
+	}
+	
+	public Student updateStudent(UpdateStudentRequest updateStudentRequest ) {
+		
+		Student student = studentRepository.findById(updateStudentRequest.getId()).get();
+		
+		if(updateStudentRequest.getFirstName()!=null && !updateStudentRequest.getFirstName().isEmpty()) {
+			
+			student.setFirstName(updateStudentRequest.getFirstName());
+		}
+		student = studentRepository.save(student);
+		return student;
+	}
+	
+	public String deleteStudent(long id) {
+		
+		studentRepository.deleteById(id);
+		return "Student has been deleted successfully";
 	}
 
 }

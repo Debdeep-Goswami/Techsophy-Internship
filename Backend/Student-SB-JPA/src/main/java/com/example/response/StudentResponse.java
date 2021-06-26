@@ -23,5 +23,4 @@ public class StudentResponse {
 		this.last_name=student.getLastName();
 		
 	}
-
 }
