@@ -3,6 +3,7 @@ package com.example.controller;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Student;
@@ -36,7 +38,7 @@ public class StudentController {
 	
 	
 	//	All Records
-	@GetMapping("/getAll")
+	@GetMapping("")
 	public List<StudentResponse> getAllStudents() {
 		List<Student> studentList=studentService.getAllStudents();
 		List<StudentResponse> studentResponseList=new ArrayList<StudentResponse>();
@@ -45,6 +47,11 @@ public class StudentController {
 		});
 		return studentResponseList;
 		
+	}
+	
+	@GetMapping("/{id}")
+	public Optional<Student> getStudent(@PathVariable Long id ) {
+		return studentService.getById(id);
 	}
 	
 	//	Using First Name Only
@@ -56,9 +63,19 @@ public class StudentController {
 			studentResponseList.add(new StudentResponse(student));
 		});
 		return studentResponseList;
-	
 	}
 	
+	/*
+	@GetMapping("/{firstName}")
+	public List<StudentResponse> getByFirstName2(@PathVariable("firstName") String firstName  ) {
+		List<Student> studentList=studentService.getByFirstName(firstName);
+		List<StudentResponse> studentResponseList=new ArrayList<StudentResponse>();
+		studentList.stream().forEach(student->{
+			studentResponseList.add(new StudentResponse(student));
+		});
+		return studentResponseList;
+	}
+	*/
 	
 	//	Using Last Name Only
 	@GetMapping("/getByLastName/{lastName}")
@@ -145,6 +162,13 @@ public class StudentController {
 	public String deleteStudent2(@PathVariable("id") long id) {
 		return studentService.deleteStudent(id);
 	}
+	
+	@DeleteMapping("/{id}")
+	@ResponseBody
+	public String deleteStudent3(@PathVariable("id") long id) {
+		return studentService.deleteStudent(id);
+	}
+	
 	
 	//__________________________________________  End of Delete Methods _________________________________________
 }
