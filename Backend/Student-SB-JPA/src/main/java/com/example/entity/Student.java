@@ -31,8 +31,27 @@ public class Student {
 	//	Constructor to create a student record in the table
 	public Student(CreateStudentRequest createStudentRequest) {
 		
-		this.id=createStudentRequest.getId();
-		this.firstName=createStudentRequest.getFirstName();
-		this.lastName=createStudentRequest.getLastName();
+		try {
+			this.id=createStudentRequest.getId();
+		}
+		catch(Exception e) {
+			System.err.println(e);
+		}
+		
+		try {
+			this.firstName=createStudentRequest.getFirstName();
+		}
+		catch(Exception e) {
+			System.err.println(e);
+		}
+		
+		try {
+			this.lastName=createStudentRequest.getLastName();
+		}
+		catch(Exception e) {
+			System.err.println(e);
+		}
+		
+		
 	}
 }
